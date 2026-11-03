@@ -8,7 +8,7 @@ class LinearRegression:
         self.b = None
         self.cost_history = []
     def predict(self, X: np.ndarray)->np.ndarray:
-        if self.w == None or self.b == None:
+        if self.w is None or self.b is None:
             raise ValueError("The model must be fit with .fit() before calling .predict()")
         return np.dot(X, self.w) + self.b
     def _compute_cost(self, X, y)->float:
