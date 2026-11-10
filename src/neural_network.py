@@ -46,6 +46,7 @@ class  TwoLayerNeuralNetwork:
             raise ValueError("Parameters not defined")
         y = y.reshape(-1,1)
         m = X.shape[0]
+        # NOTE: dW2 means dJ_dW2, dZ2 means dJ_dZ2 and so on..
         dZ2 = A2 - y #(m,1)
         dW2 = (A1.T @ dZ2) / m + self.W2 * (self.lambda_ / m)
         db2 = np.mean(dZ2, axis = 0, keepdims = True) # collapses (m,1) -> (1,1)
